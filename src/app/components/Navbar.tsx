@@ -2,6 +2,7 @@
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { AiOutlineBars } from "react-icons/ai";
+import Link from "next/link";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -33,10 +34,11 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-
-        <button className="hidden md:block bg-white border-none text-[#020F2E] py-1 px-3">
-          Resume
-        </button>
+        <Link href="/resume">
+          <button className="hidden md:block bg-white border-none text-[#020F2E] py-1 px-3 hover:bg-[#7AF4DD] hover:text-white">
+            Resume
+          </button>
+        </Link>
 
         {/* mobile */}
         <button

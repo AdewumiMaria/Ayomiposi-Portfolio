@@ -1,4 +1,6 @@
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import Summary from "../components/Summary";
 
 const Resume = () => {
   return (
@@ -6,6 +8,9 @@ const Resume = () => {
       {/* navbar */}
       <Navbar />
       {/* resume */}
+      <Summary />
+      {/* footer */}
+      <Footer/>
     </section>
   );
 };
