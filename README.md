@@ -1,36 +1,133 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Abdullahi Jimba Portfolio
+
+A personal portfolio website built with Next.js for the GoMyCode checkpoint task. It showcases Abdullahi Olakunle Jimba's profile, skills, projects, professional experience, resume information, and contact details.
+
+## Checkpoint Coverage
+
+This project satisfies the required portfolio features:
+
+- Built with Next.js using the App Router structure in `src/app`.
+- Uses file-based routing for separate portfolio pages.
+- Includes styled React components with Tailwind CSS utility classes.
+- Displays local images from the `public/images` folder using Next.js image support.
+- Includes profile, skills, projects, resume/about, experience, lab, and contact sections.
+- Supports server-rendered/static pages and can be deployed to Vercel or another Next.js hosting platform.
+
+## Pages
+
+The app uses Next.js file-based routing:
+
+- `/` - Home page with hero, narrative, stack, experience, featured work, mindset, and media sections.
+- `/about` - About page with resume-style profile details and profile picture.
+- `/projects` - Project showcase page.
+- `/experience` - Professional experience page.
+- `/tech-stack` - Technical stack page.
+- `/lab` - Engineering lab and experiment page.
+- `/resume` - Resume page using the CV-derived summary content.
+- `/contact` - Contact page with email, phone, GitHub, LinkedIn, and location.
+
+## Featured Information
+
+The portfolio includes CV-based details such as:
+
+- Name: Abdullahi Olakunle Jimba
+- Role: Software Engineer / Full-Stack Engineer
+- Location: Lagos, Nigeria
+- Email: `jimbaabdullahi9@gmail.com`
+- GitHub: `https://github.com/Phenomenal5`
+- LinkedIn: `https://www.linkedin.com/in/jimbaabdullahio`
+
+## Project Highlights
+
+Some projects shown in the portfolio include:
+
+- Ticketing Platform: scalable ticketing system with admin dashboard ownership.
+- Shanks Media & Software Company Website: company website built from planning to deployment.
+- E-Commerce Platform: full-stack commerce app with admin/user systems.
+- YouTube React Clone: React-based UI clone with component architecture.
+- Developer Utility Tools: lightweight utilities built with vanilla JavaScript.
+
+## Tech Stack
+
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS
+- React Icons
+- Next.js Image component
+
+## Project Structure
+
+```text
+src/
+  app/
+    about/
+    contact/
+    experience/
+    lab/
+    projects/
+    resume/
+    tech-stack/
+    components/
+public/
+  images/
+```
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000` in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev
+```
 
-## Learn More
+Starts the local development server.
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Creates an optimized production build.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run start
+```
 
-## Deploy on Vercel
+Starts the production server after building.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run lint
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Runs ESLint checks.
+
+## Deployment
+
+This project is deployable to Vercel:
+
+1. Push the project to GitHub.
+2. Import the repository on Vercel.
+3. Keep the default Next.js build settings.
+4. Deploy.
+
+Build command:
+
+```bash
+npm run build
+```
+
+Output is handled automatically by Next.js and Vercel.

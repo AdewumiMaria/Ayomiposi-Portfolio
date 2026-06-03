@@ -56,7 +56,7 @@ const Perform = () => {
               <div className="mt-3">
                 {/* Image */}
                 <Image
-                  src="/images/feature1.png"
+                  src="/images/shankstix.png"
                   alt="Ticket Statistics"
                   width={500}
                   height={100}

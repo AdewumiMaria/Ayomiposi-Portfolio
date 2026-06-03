@@ -8,10 +8,11 @@ const Navbar = () => {
   const pathname = usePathname();
   const navLinks = [
     { id: "/", name: "Home", href: "/" },
+    { id: "/about", name: "About", href: "/about" },
     { id: "/projects", name: "Projects", href: "/projects" },
     { id: "/experience", name: "Experiences", href: "/experience" },
     { id: "/tech-stack", name: "Tech Stacks", href: "/tech-stack" },
-    { id: "/lab", name: "Lab", href: "/lab" },
+    { id: "/contact", name: "Contact", href: "/contact" },
   ];
   return (
     <nav className="bg-[#020f2e] text-white text-sm md:text-base py-3 font-[JetBrains Mono] relative">
@@ -21,7 +22,7 @@ const Navbar = () => {
         <ul className="hidden md:flex gap-8 items-center">
           {navLinks.map((link) => (
             <li key={link.id}>
-              <a
+              <Link
                 href={link.href}
                 className={`pb-1 ${
                   pathname === link.id
@@ -30,7 +31,7 @@ const Navbar = () => {
                 }`}
               >
                 {link.name}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -61,13 +62,17 @@ const Navbar = () => {
                   pathname === link.id ? "text-[#7AF4DD]" : ""
                 }`}
               >
-                <a href={link.href}>{link.name}</a>
+                <Link href={link.href}>{link.name}</Link>
               </li>
             ))}
           </ul>
-          <button className="block mt-2 md:hidden w-[90%] mx-auto cursor-pointer rounded text-white border-none bg-[#020F2E] py-1 px-3 text-left">
+          <Link
+            href="/resume"
+            onClick={() => setIsMenuOpen(false)}
+            className="block mt-2 md:hidden w-[90%] mx-auto cursor-pointer rounded text-white border-none bg-[#020F2E] py-1 px-3 text-left"
+          >
             Resume
-          </button>
+          </Link>
         </div>
       )}
     </nav>
