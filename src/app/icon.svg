@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Monogram "M" on the site's royal blue, square-edged like the site's cards.
+       The green dot echoes the hero's "available" status light. -->
+  <style>
+    .tile { fill: #4169e1; }
+    .dot { fill: #12a672; }
+    /* Lifted royal from the dark theme, so the tile still reads on a dark tab bar. */
+    @media (prefers-color-scheme: dark) {
+      .tile { fill: #6b8dfb; }
+    }
+  </style>
+  <rect class="tile" width="32" height="32" />
+  <path
+    d="M8.5 23.5V9.5L15.5 17L22.5 9.5V23.5"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="3.2"
+    stroke-linecap="square"
+    stroke-linejoin="miter"
+  />
+  <circle class="dot" cx="27" cy="5" r="2.2" />
+</svg>

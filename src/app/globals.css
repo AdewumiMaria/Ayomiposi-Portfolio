@@ -1,26 +1,122 @@
 @import "tailwindcss";
 
+/* ─── Dark mode ────────────────────────────────────────────────────────────────
+   Tailwind v4 keys `dark:` off `prefers-color-scheme` by default. This project
+   ships a manual toggle, so re-point the variant at a `.dark` class that the
+   pre-hydration script in `layout.tsx` puts on <html>.
+   Most components never need `dark:` at all — the tokens below swap themselves. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ─── Light theme: #f4f4f4 canvas + royal blue ─────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --canvas: #f4f4f4;
+  --surface: #ffffff;
+  --surface-muted: #e9e9ef;
+  --line: #dcdce3;
+  --line-strong: #c2c2cf;
+
+  --ink: #0a0a0f;
+  --ink-muted: #4d4d59;
+  --ink-subtle: #7a7a87;
+
+  --royal: #4169e1;
+  --royal-hover: #3354c4;
+  --royal-soft: #e3e9fd;
+  --on-royal: #ffffff;
+
+  --signal: #0f8a5f;
+  --warn: #b45309;
+
+  --shadow-card: 0 1px 2px rgb(10 10 15 / 0.05), 0 8px 24px -12px rgb(10 10 15 / 0.12);
+  --glow: radial-gradient(60% 60% at 70% 20%, rgb(65 105 225 / 0.14), transparent 70%);
 }
 
+/* ─── Dark theme: near-black canvas + a brighter royal that survives it ─────── */
+:root.dark {
+  --canvas: #050507;
+  --surface: #0b0b11;
+  --surface-muted: #14141d;
+  --line: #22222e;
+  --line-strong: #343443;
+
+  --ink: #f2f2f6;
+  --ink-muted: #9d9daa;
+  --ink-subtle: #6e6e7c;
+
+  /* NOTE: #4169e1 only clears ~2.5:1 against #050507. This lifted royal keeps the
+     same hue but reaches ~7:1, so accent text stays readable on black. */
+  --royal: #6b8dfb;
+  --royal-hover: #8aa6ff;
+  --royal-soft: #131c33;
+  --on-royal: #04040a;
+
+  --signal: #34d399;
+  --warn: #fbbf24;
+
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.6), 0 8px 24px -12px rgb(0 0 0 / 0.8);
+  --glow: radial-gradient(60% 60% at 70% 20%, rgb(107 141 251 / 0.16), transparent 70%);
+}
+
+/* ─── Expose the tokens to Tailwind (bg-canvas, text-ink, border-line, …) ───── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-subtle: var(--ink-subtle);
+
+  --color-royal: var(--royal);
+  --color-royal-hover: var(--royal-hover);
+  --color-royal-soft: var(--royal-soft);
+  --color-on-royal: var(--on-royal);
+
+  --color-signal: var(--signal);
+  --color-warn: var(--warn);
+
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ─── Base ─────────────────────────────────────────────────────────────────── */
+body {
+  background-color: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Only the colour swap is animated — animating layout properties here would make
+   every theme toggle repaint the whole page. */
+@media (prefers-reduced-motion: no-preference) {
+  body,
+  .theme-fade {
+    transition: background-color 240ms ease, border-color 240ms ease, color 240ms ease;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+::selection {
+  background-color: var(--royal);
+  color: var(--on-royal);
+}
+
+:focus-visible {
+  outline: 2px solid var(--royal);
+  outline-offset: 2px;
+}
+
+/* ─── Blueprint grid used behind the hero and page headers ─────────────────── */
+@utility blueprint {
+  background-image: linear-gradient(to right, var(--line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(75% 75% at 50% 35%, #000 20%, transparent 100%);
+}
+
+/* Soft royal bloom layered over the blueprint grid. */
+@utility royal-glow {
+  background-image: var(--glow);
 }
