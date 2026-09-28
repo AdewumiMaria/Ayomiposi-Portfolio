@@ -216,8 +216,8 @@ const AboutSummary = () => {
                 Building production interfaces at SHANKS Africa.
               </p>
               <p className="mt-2 text-sm leading-6 text-on-royal/80">
-                Available immediately for frontend engineering roles and
-                product-focused web development.
+                Available immediately for frontend engineering roles,
+                product-focused web development and also personal projects.
               </p>
             </div>
           </Reveal>
